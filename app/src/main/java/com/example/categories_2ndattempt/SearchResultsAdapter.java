@@ -35,7 +35,9 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
     Filter filter=new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
+
             ArrayList<SearchResultsCats> filteredlist= new ArrayList<SearchResultsCats>();
+
             if(charSequence.toString().isEmpty())
             {filteredlist.addAll(FULL_LIST);}
             else
@@ -48,43 +50,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
                     }
                 }
             }
+            filteredlist=SortAlgo(filteredlist,charSequence.toString());
             FilterResults filterResults=new FilterResults();
             filterResults.values=filteredlist;
             Log.d("Search Logic","Processing");
 
             return filterResults;
         }
-
-        private boolean SearchAlgo(String example, String seq)
-
-        {
-            example = example.toLowerCase().trim();
-            seq = seq.toLowerCase().trim();
-            int i;
-            if(seq.length()==1)
-            {
-                if(example.contains(seq))
-                    return true;
-                else
-                    return false;
-            }
-            else
-            {
-
-                if (example.contains(seq.substring(0,1)))
-                {
-                    return (SearchAlgo(example.substring(example.indexOf(seq.substring(0,1))), seq.substring(1)));
-                }
-                else
-                {
-                    return (false);
-                }
-            }
-        }
-
-
-
-
 
 
     @Override
@@ -148,6 +120,88 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
     public int getItemCount() {
         return cats.size();
     }
+
+
+
+
+    private ArrayList<SearchResultsCats> SortAlgo(ArrayList<SearchResultsCats> example, String seq)
+    {
+        seq=seq.toLowerCase().trim();
+
+        for(int i=0;i<example.size();i++)
+        {
+            for(int j=i+1;j<example.size();j++)
+            {
+                int[] var1=new int[seq.length()];
+                int[] var2=new int[seq.length()];
+
+                for(int l=0;l<seq.length();l++)
+                {
+                    var1[l]=example.get(i).getTitle().indexOf(seq.substring(l,l+1));
+                    var2[l]=example.get(j).getTitle().indexOf(seq.substring(l,l+1));
+
+                }
+                if(variance(var1,seq.length())>variance(var2,seq.length()))
+                {
+                    SearchResultsCats temp= example.get(i);
+                    example.set(i,example.get(j));
+                    example.set(j,temp);
+
+                }
+
+            }
+
+
+        }
+        return example;
+
+
+    }
+
+    public double variance(int a[], int n)
+    {
+        // Compute mean (average of elements)
+        int sum = 0;
+        for (int i = 0; i < n; i++)
+            sum += a[i];
+        double mean = (double)sum /
+                (double)n;
+
+        // Compute sum squared
+        // differences with mean.
+        double sqDiff = 0;
+        for (int i = 0; i < n; i++)
+            sqDiff += (a[i] - mean) *
+                    (a[i] - mean);
+        return sqDiff / n;
+    }
+    private boolean SearchAlgo(String example, String seq)
+
+    {
+        example = example.toLowerCase().trim();
+        seq = seq.toLowerCase().trim();
+        int i;
+        if(seq.length()==1)
+        {
+            if(example.contains(seq))
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+
+            if (example.contains(seq.substring(0,1)))
+            {
+                return (SearchAlgo(example.substring(example.indexOf(seq.substring(0,1))), seq.substring(1)));
+            }
+            else
+            {
+                return (false);
+            }
+        }
+    }
+
 }
 
 
