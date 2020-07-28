@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
@@ -17,11 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class CutomerHomePageActivity extends AppCompatActivity implements CategoryAdapterTop.sendonitemclicktop,CategoryAdapterBottom.sendonItemclickbottom {
+public class CustomerHomePageActivity extends AppCompatActivity implements CategoryAdapterTop.sendonitemclicktop,CategoryAdapterBottom.sendonItemclickbottom {
 
     FragmentManager fragmentManager;
-    SearchResultsFragment sf;
-    HomeFragment hf;
+
 
 
 
@@ -38,10 +38,8 @@ public class CutomerHomePageActivity extends AppCompatActivity implements Catego
                 .commit();
 
 
+
     }
-
-
-
 
     @Override
     public void sendonclicktop(int i) {

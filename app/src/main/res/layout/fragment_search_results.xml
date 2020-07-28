@@ -17,9 +17,10 @@
             android:id="@+id/toolbarsearch"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/amudark"
+            android:background="@color/Orangeapp"
             card_view:title="Search"
             card_view:titleMarginStart="40dp"
+            card_view:titleTextAppearance="@style/VyapparTitle"
             card_view:titleTextColor="#FFFFFF" />
 
         <ScrollView

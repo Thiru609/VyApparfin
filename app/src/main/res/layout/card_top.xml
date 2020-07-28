@@ -3,6 +3,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="20dp"
@@ -10,44 +11,47 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        card_view:cardBackgroundColor="@color/amulight"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:background="@drawable/shape"
         card_view:cardCornerRadius="30dp"
-        card_view:cardElevation="2dp">
+        card_view:cardElevation="4dp">
 
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape">
 
+            <TextView
+                android:id="@+id/twTitle"
+                android:layout_width="167dp"
+                android:layout_height="50dp"
+                android:fontFamily="@font/pacifico"
+                android:gravity="center_horizontal"
+                android:text="Food  "
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.23"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="0.13999999" />
 
             <ImageView
                 android:id="@+id/iw1"
                 android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="25dp"
-                android:tint="@color/amudark"
+                android:layout_height="100dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.92"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="1.0"
                 card_view:srcCompat="@drawable/foodplaceholder" />
 
-            <TextView
-                android:id="@+id/twTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/iw1"
-                android:layout_alignLeft="@id/iw1"
-                android:layout_alignRight="@id/iw1"
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:text="TextView"
-                android:textColor="@color/amudark"
-                android:textSize="14sp" />
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>

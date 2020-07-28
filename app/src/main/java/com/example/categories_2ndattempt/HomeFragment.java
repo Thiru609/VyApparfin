@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,10 +31,14 @@ public class HomeFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager1,layoutManager2,layoutManager3;
     View view;
     ArrayList<HomeCats> home_data1,home_data2;
+    SearchView sw,sw2;
+    Toolbar toolbar;
 
     public HomeFragment() {
         // Required empty public constructor
     }
+
+
 
 
     @Override
@@ -42,15 +47,22 @@ public class HomeFragment extends Fragment {
 
         home_data1=new ArrayList<HomeCats>();
         home_data2=new ArrayList<HomeCats>();
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
-        home_data1.add(new HomeCats("McDick", R.drawable.educationplaceholder));
+        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+
+        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+
         iwPromo=view.findViewById(R.id.iwPromo);
-        iwPromo.setImageResource(R.drawable.foodplaceholder);
+        iwPromo.setImageResource(R.drawable.banner);
 
         l1=view.findViewById(R.id.lw1);
         l2=view.findViewById(R.id.lw2);
@@ -59,8 +71,8 @@ public class HomeFragment extends Fragment {
         l2.setHasFixedSize(true);
         l3.setHasFixedSize(true);
         adapter1=new CategoryAdapterTop(this.getActivity(),home_data1);
-        adapter2=new CategoryAdapterBottom(this.getActivity(),home_data1);
-        adapter3=new CategoryAdapterBottom(this.getActivity(),home_data1);
+        adapter2=new CategoryAdapterBottom(this.getActivity(),home_data2);
+        adapter3=new CategoryAdapterBottom(this.getActivity(),home_data2);
         layoutManager1=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
         layoutManager2=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
         layoutManager3=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
@@ -71,35 +83,42 @@ public class HomeFragment extends Fragment {
         l3.setAdapter(adapter3);
         l3.setLayoutManager(layoutManager3);
 
-        Toolbar toolbar= view.findViewById(R.id.toolbarhome);
+        toolbar= view.findViewById(R.id.toolbarhome);
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_shopping_cart_24);
         toolbar.inflateMenu(R.menu.homemenu);
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_location_on_24);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        sw2=(SearchView)toolbar.getMenu().findItem(R.id.succbar).getActionView();
+        sw2.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(),"LOCATION CHANGE",Toast.LENGTH_SHORT).show();
-                Log.d("Home","Back");
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
-        });
 
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId())
-                {
-                    case R.id.cart:
-                        Toast.makeText(getActivity(), "CART BITCH", Toast.LENGTH_SHORT).show();
-                        Log.d("Home","cart");
-                        break;
-
-                }
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(getContext(),"BIG SUCC",Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
+    }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.homemenu,menu);
+        MenuItem item = menu.findItem(R.id.succbar);
+        sw= (SearchView) item.getActionView();
+        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(getContext(),"BIG SUCC",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
     }
 

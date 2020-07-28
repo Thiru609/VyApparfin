@@ -6,77 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".FirstActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:text="Choose A Category"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/scroll1"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="242dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/foodplaceholder"
+        tools:srcCompat="@drawable/foodplaceholder" />
 
-    <ScrollView
-        android:id="@+id/scroll1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="328dp"
+        android:layout_height="166dp"
+        android:fontFamily="@font/pacifico"
+        android:text="vyAppar!"
+        android:textAllCaps="false"
+        android:textColor="#F44336"
+        android:textSize="80sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make your hobby a profession!"
+        android:textColor="#F44336"
+        android:textSize="18sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/iw1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintBaseline_toBaselineOf="@id/imageView2"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/imageView2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/foodplaceholder" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Food "
-                app:layout_constraintEnd_toEndOf="@id/iw1"
-                app:layout_constraintStart_toStartOf="@id/iw1"
-                app:layout_constraintTop_toBottomOf="@id/iw1" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:layout_constraintBaseline_toBaselineOf="@id/iw1"
-                app:layout_constraintLeft_toRightOf="@id/iw1"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/educationplaceholder" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Education"
-                app:layout_constraintEnd_toEndOf="@id/imageView2"
-                app:layout_constraintStart_toStartOf="@id/imageView2"
-                app:layout_constraintTop_toBottomOf="@id/imageView2" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.100000024" />
 </androidx.constraintlayout.widget.ConstraintLayout>

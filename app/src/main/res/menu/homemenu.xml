@@ -3,9 +3,10 @@
     xmlns:App="http://schemas.android.com/apk/res-auto">
 
     <item android:title="Cart"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:id="@+id/cart"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:id="@+id/succbar"
         android:orderInCategory="100"
-        App:showAsAction="always" />
+        App:showAsAction="always|collapseActionView"
+        App:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
 </menu>

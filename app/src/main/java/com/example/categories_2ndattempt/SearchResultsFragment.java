@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,10 +25,12 @@ import java.util.ArrayList;
 public class SearchResultsFragment extends Fragment {
 
     View view;
-    RecyclerView.Adapter adapter;
+    SearchResultsAdapter adapter;
     LinearLayoutManager linearLayoutManager;
     RecyclerView l1;
     private ArrayList<SearchResultsCats> data;
+    SearchView sw,sw2;
+    Toolbar toolbar;
 
 
 
@@ -41,13 +44,14 @@ public class SearchResultsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         data=new ArrayList<SearchResultsCats>();
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Yo mama so fat","Not available", R.drawable.foodplaceholder));
+        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
 
         l1=view.findViewById(R.id.l1);
         l1.setHasFixedSize(true);
@@ -55,37 +59,22 @@ public class SearchResultsFragment extends Fragment {
         linearLayoutManager=new LinearLayoutManager(this.getActivity(),RecyclerView.VERTICAL,false);
         l1.setAdapter(adapter);
         l1.setLayoutManager(linearLayoutManager);
-
-        Toolbar toolbar= view.findViewById(R.id.toolbarsearch);
+        toolbar= view.findViewById(R.id.toolbarsearch);
         toolbar.inflateMenu(R.menu.homemenu);
-        toolbar.setNavigationIcon(R.drawable.ic_baseline_search_24);
-
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        sw2=(SearchView)toolbar.getMenu().findItem(R.id.succbar).getActionView();
+        sw2.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(),"Search",Toast.LENGTH_SHORT).show();
-                Log.d("Home","Back");
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
-        });
 
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId())
-                {
-                    case R.id.cart:
-                        Toast.makeText(getActivity(), "CART BITCH", Toast.LENGTH_SHORT).show();
-                        Log.d("Home","cart");
-                        break;
-
-                }
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(getContext(),"BIG SUCC",Toast.LENGTH_SHORT).show();
+                adapter.getFilter().filter(newText);
                 return false;
             }
         });
-
-
-
 
     }
 
@@ -94,9 +83,32 @@ public class SearchResultsFragment extends Fragment {
                              Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_search_results, container, false);
         setHasOptionsMenu(true);
+
         return view;
 
 
     }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.homemenu,menu);
+        MenuItem item = menu.findItem(R.id.succbar);
+        sw= (SearchView) item.getActionView();
+        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                adapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(getContext(),"BIG SUCC",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+    }
+
 
 }
