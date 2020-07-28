@@ -39,18 +39,10 @@
         android:id="@+id/bottomnw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/bottomnav"
-        app:elevation="40dp"
-        app:itemIconSize="24dp"
-        app:itemIconTint="@color/violethighlight"
-        app:itemTextColor="@color/lightpurple"
-        app:layout_constraintBaseline_toBaselineOf="parent"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/bottombar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

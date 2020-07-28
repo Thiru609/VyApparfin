@@ -39,38 +39,44 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Categ
                 .addToBackStack(null)
                 .commit();
         bnw=findViewById(R.id.bottomnw);
+        bnw.setOnNavigationItemSelectedListener(navListener);
+
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bottombar,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+private BottomNavigationView.OnNavigationItemSelectedListener navListener= new
+        BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
-        {
-            case(R.id.homebottom):
-                break;
+                switch (item.getItemId())
+                {
+                    case(R.id.homebottom):
+                        fragmentManager.beginTransaction()
+                                .hide(fragmentManager.findFragmentById(R.id.searchfrag))
+                                .show(fragmentManager.findFragmentById(R.id.homefragment))
+                                .addToBackStack(null)
+                                .commit();
+                        break;
 
-            case(R.id.searchbottom):
-                fragmentManager.beginTransaction()
-                        .hide(fragmentManager.findFragmentById(R.id.homefragment))
-                        .show(fragmentManager.findFragmentById(R.id.searchfrag))
-                        .addToBackStack(null)
-                        .commit();
-                break;
-            case(R.id.cartbottom):
-                break;
-            case(R.id.profilebottom):
-                break;
+                    case(R.id.searchbottom):
+                        fragmentManager.beginTransaction()
+                                .hide(fragmentManager.findFragmentById(R.id.homefragment))
+                                .show(fragmentManager.findFragmentById(R.id.searchfrag))
+                                .addToBackStack(null)
+                                .commit();
+                        break;
+                    case(R.id.cartbottom):
+                        break;
+                    case(R.id.profilebottom):
+                        break;
 
 
-        }
-        return super.onOptionsItemSelected(item);
-    }
+                }
+
+                return true;
+            }
+        };
 
     @Override
     public void sendonclicktop(int i) {
