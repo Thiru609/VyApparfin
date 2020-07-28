@@ -13,15 +13,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarsearch"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/Orangeapp"
-            card_view:title="Search"
-            card_view:titleMarginStart="40dp"
-            card_view:titleTextAppearance="@style/VyapparTitle"
-            card_view:titleTextColor="#FFFFFF" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/searchviewbackground">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/sw"
+                style="@style/SearchViewTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/whitebackground"
+                card_view:defaultQueryHint="Search Items"
+                card_view:iconifiedByDefault="false"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:searchIcon="@drawable/ic_baseline_search_24" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -32,10 +45,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="40dp" />
+                android:layout_marginBottom="40dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
         </ScrollView>
+
     </LinearLayout>
 
 </FrameLayout>

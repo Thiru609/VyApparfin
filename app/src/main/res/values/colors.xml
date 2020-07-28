@@ -7,4 +7,12 @@
     <color name="amudark">#0D3B66</color>
     <color name="Orangeapp">#FFFF5722</color>
     <color name="Orangelight">#FFFF9800</color>
+    <color name="violethighlight">#A97AEB</color>
+    <color name="lightpink">#F8CFF5</color>
+    <color name="lightpurple">#A578EB</color>
+    <color name="superlightpink">#FBE2F9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="complimentarygreen">#7AEB83</color>
+    <color name="black">#000000</color>
+    <color name="grey">#DCDCDC</color>
 </resources>

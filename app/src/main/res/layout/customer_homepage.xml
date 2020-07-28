@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,23 +8,49 @@
     tools:context=".CustomerHomePageActivity">
 
 
-    <fragment
-        android:id="@+id/searchfrag"
-        android:name="com.example.categories_2ndattempt.SearchResultsFragment"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <fragment
+            android:id="@+id/searchfrag"
+            android:name="com.example.categories_2ndattempt.SearchResultsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:layout="@layout/fragment_search_results" />
+
+        <fragment
+            android:id="@+id/homefragment"
+            android:name="com.example.categories_2ndattempt.HomeFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            tools:layout="@layout/home_fragment" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bottomnav"
+        app:elevation="40dp"
+        app:itemIconSize="24dp"
+        app:itemIconTint="@color/violethighlight"
+        app:itemTextColor="@color/lightpurple"
+        app:layout_constraintBaseline_toBaselineOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout="@layout/fragment_search_results" />
+        app:menu="@menu/bottombar">
 
-    <fragment
-        android:id="@+id/homefragment"
-        android:name="com.example.categories_2ndattempt.HomeFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/home_fragment" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

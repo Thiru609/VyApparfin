@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstActivity">
+    tools:context=".FirstActivity"
+    android:background="@color/lightpurple">
 
     <ImageView
         android:id="@+id/imageView"
@@ -23,8 +24,7 @@
         android:layout_height="166dp"
         android:fontFamily="@font/pacifico"
         android:text="vyAppar!"
-        android:textAllCaps="false"
-        android:textColor="#F44336"
+        android:textColor="@color/white"
         android:textSize="80sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Make your hobby a profession!"
-        android:textColor="#F44336"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"

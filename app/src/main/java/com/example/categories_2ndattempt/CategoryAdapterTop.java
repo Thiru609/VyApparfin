@@ -1,6 +1,5 @@
 package com.example.categories_2ndattempt;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +37,7 @@ public class CategoryAdapterTop extends RecyclerView.Adapter<CategoryAdapterTop.
             super(itemView);
 
             iwdisp = itemView.findViewById(R.id.iw1);
-            title = itemView.findViewById(R.id.twTitle);
+            title = itemView.findViewById(R.id.tv1);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

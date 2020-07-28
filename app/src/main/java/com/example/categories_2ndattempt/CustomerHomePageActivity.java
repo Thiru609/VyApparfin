@@ -18,11 +18,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class CustomerHomePageActivity extends AppCompatActivity implements CategoryAdapterTop.sendonitemclicktop,CategoryAdapterBottom.sendonItemclickbottom {
 
     FragmentManager fragmentManager;
-
-
+    BottomNavigationView bnw;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -36,9 +38,38 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Categ
                 .hide(fragmentManager.findFragmentById(R.id.searchfrag))
                 .addToBackStack(null)
                 .commit();
+        bnw=findViewById(R.id.bottomnw);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bottombar,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case(R.id.homebottom):
+                break;
+
+            case(R.id.searchbottom):
+                fragmentManager.beginTransaction()
+                        .hide(fragmentManager.findFragmentById(R.id.homefragment))
+                        .show(fragmentManager.findFragmentById(R.id.searchfrag))
+                        .addToBackStack(null)
+                        .commit();
+                break;
+            case(R.id.cartbottom):
+                break;
+            case(R.id.profilebottom):
+                break;
 
 
-
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -61,6 +92,8 @@ public class CustomerHomePageActivity extends AppCompatActivity implements Categ
 
 
     }
+
+
 
 
 }

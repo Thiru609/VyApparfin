@@ -15,11 +15,12 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarhome"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#FF5722"
+            android:layout_height="wrap_content"
+            android:background="@color/lightpurple"
+            android:gravity="center_horizontal|center_vertical"
             android:theme="@style/ToolBarTheme"
-            app:title="VyAppar "
-            app:titleMarginStart="100dp"
+            app:title="VyAppar"
+            app:titleMarginStart="80dp"
             app:titleTextAppearance="@style/VyapparTitle"
             app:titleTextColor="#FFFFFF" />
 
@@ -40,7 +41,6 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="30dp"
                     app:layout_constraintBottom_toTopOf="@id/tvPopular"
                     app:layout_constraintLeft_toLeftOf="parent"

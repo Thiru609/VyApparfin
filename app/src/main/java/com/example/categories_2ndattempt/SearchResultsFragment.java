@@ -29,8 +29,8 @@ public class SearchResultsFragment extends Fragment {
     LinearLayoutManager linearLayoutManager;
     RecyclerView l1;
     private ArrayList<SearchResultsCats> data;
-    SearchView sw,sw2;
-    Toolbar toolbar;
+    SearchView sw;
+
 
 
 
@@ -54,98 +54,7 @@ public class SearchResultsFragment extends Fragment {
         data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
         data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
         data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
-        data.add(new SearchResultsCats("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.pizza));
+
 
 
         l1=view.findViewById(R.id.l1);
@@ -154,10 +63,9 @@ public class SearchResultsFragment extends Fragment {
         linearLayoutManager=new LinearLayoutManager(this.getActivity(),RecyclerView.VERTICAL,false);
         l1.setAdapter(adapter);
         l1.setLayoutManager(linearLayoutManager);
-        toolbar= view.findViewById(R.id.toolbarsearch);
-        toolbar.inflateMenu(R.menu.homemenu);
-        sw2=(SearchView)toolbar.getMenu().findItem(R.id.succbar).getActionView();
-        sw2.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+        sw=(SearchView) view.findViewById(R.id.sw);
+        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -188,20 +96,6 @@ public class SearchResultsFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.homemenu,menu);
         MenuItem item = menu.findItem(R.id.succbar);
-        sw= (SearchView) item.getActionView();
-        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                adapter.getFilter().filter(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Toast.makeText(getContext(),"BIG SUCC",Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
 
     }
 

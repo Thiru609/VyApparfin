@@ -13,9 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.newViewHolder> implements Filterable {
 
@@ -77,7 +75,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
             super(itemView);
 
             iwdisp=itemView.findViewById(R.id.iw1);
-            title=itemView.findViewById(R.id.twTitle);
+            title=itemView.findViewById(R.id.tv1);
             desc=itemView.findViewById(R.id.twDesc);
             misc=itemView.findViewById(R.id.tvMisc);
             rating=itemView.findViewById(R.id.tvrating);

@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager1,layoutManager2,layoutManager3;
     View view;
     ArrayList<HomeCats> home_data1,home_data2;
-    SearchView sw,sw2;
+    SearchView sw;
     Toolbar toolbar;
 
     public HomeFragment() {
@@ -86,8 +86,8 @@ public class HomeFragment extends Fragment {
         toolbar= view.findViewById(R.id.toolbarhome);
         toolbar.setNavigationIcon(R.drawable.ic_baseline_shopping_cart_24);
         toolbar.inflateMenu(R.menu.homemenu);
-        sw2=(SearchView)toolbar.getMenu().findItem(R.id.succbar).getActionView();
-        sw2.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        sw=(SearchView)toolbar.getMenu().findItem(R.id.succbar).getActionView();
+        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -110,6 +110,7 @@ public class HomeFragment extends Fragment {
         sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 return false;
             }
 

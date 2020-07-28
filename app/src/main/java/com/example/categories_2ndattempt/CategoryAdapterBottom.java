@@ -35,7 +35,7 @@ public class CategoryAdapterBottom extends RecyclerView.Adapter<CategoryAdapterB
             super(itemView);
 
             iwdisp=itemView.findViewById(R.id.iw1);
-            title=itemView.findViewById(R.id.twTitle);
+            title=itemView.findViewById(R.id.tv1);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
