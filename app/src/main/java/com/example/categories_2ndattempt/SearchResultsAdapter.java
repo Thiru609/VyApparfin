@@ -42,7 +42,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
             {
                 for(SearchResultsCats temp: FULL_LIST)
                 {
-                    if(temp.getTitle().toLowerCase().contains(charSequence.toString().toLowerCase()))
+                    if(SearchAlgo(temp.getTitle().toLowerCase(),charSequence.toString()))
                     {
                         filteredlist.add(temp);
                     }
@@ -55,7 +55,39 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
             return filterResults;
         }
 
-        @Override
+        private boolean SearchAlgo(String example, String seq)
+
+        {
+            example = example.toLowerCase().trim();
+            seq = seq.toLowerCase().trim();
+            int i;
+            if(seq.length()==1)
+            {
+                if(example.contains(seq))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+
+                if (example.contains(seq.substring(0,1)))
+                {
+                    return (SearchAlgo(example.substring(example.indexOf(seq.substring(0,1))), seq.substring(1)));
+                }
+                else
+                {
+                    return (false);
+                }
+            }
+        }
+
+
+
+
+
+
+    @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             cats= (ArrayList<SearchResultsCats>) filterResults.values;
             notifyDataSetChanged();
