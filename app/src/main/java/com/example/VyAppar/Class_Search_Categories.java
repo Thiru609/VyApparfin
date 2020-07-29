@@ -1,10 +1,10 @@
-package com.example.categories_2ndattempt;
+package com.example.VyAppar;
 
-public class SearchResultsCats {
+public class Class_Search_Categories {
     private String Title,Desc,Misc,Rating;
     private int iwDisp;
 
-    public SearchResultsCats(String title, String desc, String misc, String rating, int iwDisp) {
+    public Class_Search_Categories(String title, String desc, String misc, String rating, int iwDisp) {
         Title = title;
         Desc = desc;
         Misc = misc;

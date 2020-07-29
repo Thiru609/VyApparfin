@@ -1,12 +1,10 @@
-package com.example.categories_2ndattempt;
+package com.example.VyAppar;
 
-import android.widget.ImageView;
-
-public class HomeCats {
+public class Class_Home_Category {
     private String cat_title;
     private int iwDisp;
 
-    public HomeCats(String cat_title, int iwDisp) {
+    public Class_Home_Category(String cat_title, int iwDisp) {
         this.cat_title = cat_title;
         this.iwDisp = iwDisp;
     }

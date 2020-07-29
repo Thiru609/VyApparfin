@@ -1,4 +1,4 @@
-package com.example.categories_2ndattempt;
+package com.example.VyAppar;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,12 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdapter.newViewHolder> implements Filterable {
+public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewHolder> implements Filterable {
 
-    private ArrayList<SearchResultsCats> cats=new ArrayList<>();
-    private ArrayList<SearchResultsCats> FULL_LIST=new ArrayList<>();
+    private ArrayList<Class_Search_Categories> cats=new ArrayList<>();
+    private ArrayList<Class_Search_Categories> FULL_LIST=new ArrayList<>();
 
-    public SearchResultsAdapter(Context context, ArrayList<SearchResultsCats> list){
+    public Adapter_Search(Context context, ArrayList<Class_Search_Categories> list){
         cats = list;
         FULL_LIST=list;
     }
@@ -34,13 +34,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
 
-            ArrayList<SearchResultsCats> filteredlist= new ArrayList<SearchResultsCats>();
+            ArrayList<Class_Search_Categories> filteredlist= new ArrayList<Class_Search_Categories>();
 
             if(charSequence.toString().isEmpty())
             {filteredlist.addAll(FULL_LIST);}
             else
             {
-                for(SearchResultsCats temp: FULL_LIST)
+                for(Class_Search_Categories temp: FULL_LIST)
                 {
                     if(SearchAlgo(temp.getTitle().toLowerCase(),charSequence.toString()))
                     {
@@ -59,7 +59,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
     @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            cats= (ArrayList<SearchResultsCats>) filterResults.values;
+            cats= (ArrayList<Class_Search_Categories>) filterResults.values;
             notifyDataSetChanged();
             Log.d("The Publish","Of results ");
 
@@ -94,13 +94,13 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
     @NonNull
     @Override
-    public SearchResultsAdapter.newViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_searchresults,parent,false);
+    public Adapter_Search.newViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_search,parent,false);
         return new newViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchResultsAdapter.newViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Adapter_Search.newViewHolder holder, int position) {
 
         holder.itemView.setTag(cats.get(position));
         holder.iwdisp.setImageResource(cats.get(position).getIwDisp());
@@ -122,7 +122,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
 
 
-    private ArrayList<SearchResultsCats> SortAlgo(ArrayList<SearchResultsCats> example, String seq)
+    private ArrayList<Class_Search_Categories> SortAlgo(ArrayList<Class_Search_Categories> example, String seq)
     {
         seq=seq.toLowerCase().trim();
 
@@ -141,7 +141,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
                 }
                 if(variance(var1,seq.length())>variance(var2,seq.length()))
                 {
-                    SearchResultsCats temp= example.get(i);
+                    Class_Search_Categories temp= example.get(i);
                     example.set(i,example.get(j));
                     example.set(j,temp);
 

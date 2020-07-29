@@ -4,45 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".CustomerHomePageActivity">
+    tools:context=".Activity_MAIN">
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <FrameLayout
+        android:id="@+id/main_frame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomnw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <fragment
-            android:id="@+id/searchfrag"
-            android:name="com.example.categories_2ndattempt.SearchResultsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            tools:layout="@layout/fragment_search_results" />
-
-        <fragment
-            android:id="@+id/homefragment"
-            android:name="com.example.categories_2ndattempt.HomeFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            tools:layout="@layout/home_fragment" />
-    </LinearLayout>
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="@color/white"
+        app:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar" />
+        app:menu="@menu/menu_bottom_nav_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.categories_2ndattempt;
+package com.example.VyAppar;
 
 import org.junit.Test;
 

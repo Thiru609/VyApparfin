@@ -1,4 +1,4 @@
-package com.example.categories_2ndattempt;
+package com.example.VyAppar;
 
 import android.os.Bundle;
 
@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,43 +22,41 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class Fragment_Home extends Fragment {
 
     public RecyclerView l1,l2,l3;
     public ImageView iwPromo;
     RecyclerView.Adapter adapter1,adapter2,adapter3;
     RecyclerView.LayoutManager layoutManager1,layoutManager2,layoutManager3;
     View view;
-    ArrayList<HomeCats> home_data1,home_data2;
+    ArrayList<Class_Home_Category> home_data1,home_data2;
     SearchView sw;
     Toolbar toolbar;
 
-    public HomeFragment() {
+    public Fragment_Home() {
         // Required empty public constructor
     }
-
-
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        home_data1=new ArrayList<HomeCats>();
-        home_data2=new ArrayList<HomeCats>();
-        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
-        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
-        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
-        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
-        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
-        home_data1.add(new HomeCats("Food", R.drawable.foodplaceholder));
+        home_data1=new ArrayList<Class_Home_Category>();
+        home_data2=new ArrayList<Class_Home_Category>();
+        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
+        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
+        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
+        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
+        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
+        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
 
-        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
-        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
-        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
-        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
-        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
-        home_data2.add(new HomeCats("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.pizza));
+        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.pizza));
 
         iwPromo=view.findViewById(R.id.iwPromo);
         iwPromo.setImageResource(R.drawable.banner);
@@ -70,9 +67,9 @@ public class HomeFragment extends Fragment {
         l1.setHasFixedSize(true);
         l2.setHasFixedSize(true);
         l3.setHasFixedSize(true);
-        adapter1=new CategoryAdapterTop(this.getActivity(),home_data1);
-        adapter2=new CategoryAdapterBottom(this.getActivity(),home_data2);
-        adapter3=new CategoryAdapterBottom(this.getActivity(),home_data2);
+        adapter1=new Adapter_Home_Bottom(this.getActivity(),home_data1);
+        adapter2=new Adapter_Home_Top(this.getActivity(),home_data2);
+        adapter3=new Adapter_Home_Top(this.getActivity(),home_data2);
         layoutManager1=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
         layoutManager2=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
         layoutManager3=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
@@ -85,8 +82,9 @@ public class HomeFragment extends Fragment {
 
         toolbar= view.findViewById(R.id.toolbarhome);
         toolbar.setNavigationIcon(R.drawable.ic_baseline_shopping_cart_24);
-        toolbar.inflateMenu(R.menu.homemenu);
+        toolbar.inflateMenu(R.menu.menu_toolbar);
         sw=(SearchView)toolbar.getMenu().findItem(R.id.succbar).getActionView();
+        sw.setIconifiedByDefault(false);
         sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -101,33 +99,13 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.homemenu,menu);
-        MenuItem item = menu.findItem(R.id.succbar);
-        sw= (SearchView) item.getActionView();
-        sw.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
 
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                Toast.makeText(getContext(),"BIG SUCC",Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.home_fragment, container, false);
+        view=inflater.inflate(R.layout.fragment_home, container, false);
         setHasOptionsMenu(true);
         return view;
     }

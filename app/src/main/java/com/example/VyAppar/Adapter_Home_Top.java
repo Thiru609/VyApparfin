@@ -1,4 +1,4 @@
-package com.example.categories_2ndattempt;
+package com.example.VyAppar;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CategoryAdapterBottom extends RecyclerView.Adapter<CategoryAdapterBottom.newViewHolder> {
+public class Adapter_Home_Top extends RecyclerView.Adapter<Adapter_Home_Top.newViewHolder> {
 
-    private ArrayList<HomeCats> cats;
+    private ArrayList<Class_Home_Category> cats;
 
     sendonItemclickbottom activity;
 
@@ -22,7 +22,7 @@ public class CategoryAdapterBottom extends RecyclerView.Adapter<CategoryAdapterB
         void sendonclickbottom(int i);
     }
 
-    public CategoryAdapterBottom(Context context, ArrayList<HomeCats> list){
+    public Adapter_Home_Top(Context context, ArrayList<Class_Home_Category> list){
         cats=list;
         activity=(sendonItemclickbottom) context;
     }
@@ -51,13 +51,13 @@ public class CategoryAdapterBottom extends RecyclerView.Adapter<CategoryAdapterB
 
     @NonNull
     @Override
-    public CategoryAdapterBottom.newViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_bottom,parent,false);
+    public Adapter_Home_Top.newViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_home_bottom,parent,false);
         return new newViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapterBottom.newViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Adapter_Home_Top.newViewHolder holder, int position) {
 
         holder.itemView.setTag(cats.get(position));
         holder.iwdisp.setImageResource(cats.get(position).getIwDisp());
