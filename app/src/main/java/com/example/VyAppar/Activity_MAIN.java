@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -49,6 +50,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener navListener= new
                         SetFragment(new Fragment_Search());
                         break;
                     case(R.id.cartbottom):
+                        SetFragment(new Fragment_Cart_PARENT());
                         break;
                     case(R.id.profilebottom):
                         break;

@@ -8,13 +8,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -27,6 +32,7 @@ public class Fragment_Home extends Fragment {
     View view;
     ArrayList<Class_Home_Category> home_data1,home_data2;
     Toolbar toolbar;
+    BottomNavigationView bnw;
 
     public Fragment_Home() {
         // Required empty public constructor
@@ -78,6 +84,18 @@ public class Fragment_Home extends Fragment {
         toolbar= view.findViewById(R.id.toolbarhome);
         toolbar.setNavigationIcon(R.drawable.ic_baseline_location_on_24);
         toolbar.inflateMenu(R.menu.menu_toolbar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId()==R.id.cart)
+                {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new Fragment_Cart_PARENT()).commit();
+                    bnw=getActivity().findViewById(R.id.bottomnw);
+                    bnw.setSelectedItemId(R.id.cartbottom);
+                }
+                return false;
+            }
+        });
 
 
     }
