@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
 
     private ArrayList<Class_Search_Categories> cats=new ArrayList<>();
     private ArrayList<Class_Search_Categories> FULL_LIST=new ArrayList<>();
+    int height;
 
     public Adapter_Search(Context context, ArrayList<Class_Search_Categories> list){
         cats = list;
@@ -51,7 +53,6 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
             filteredlist=SortAlgo(filteredlist,charSequence.toString());
             FilterResults filterResults=new FilterResults();
             filterResults.values=filteredlist;
-            Log.d("Search Logic","Processing");
 
             return filterResults;
         }
@@ -74,6 +75,9 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
         public newViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            WindowManager.LayoutParams layoutParams=new WindowManager.LayoutParams();
+            layoutParams.height=height/5;
+            itemView.setLayoutParams(layoutParams);
             iwdisp=itemView.findViewById(R.id.iw1);
             title=itemView.findViewById(R.id.tv1);
             desc=itemView.findViewById(R.id.twDesc);
@@ -96,6 +100,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
     @Override
     public Adapter_Search.newViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card_search,parent,false);
+        height=parent.getContext().getResources().getDisplayMetrics().heightPixels;
         return new newViewHolder(view);
     }
 

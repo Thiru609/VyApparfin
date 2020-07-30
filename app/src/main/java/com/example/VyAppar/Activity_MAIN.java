@@ -13,7 +13,7 @@ import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Bottom.sendonitemclicktop, Adapter_Home_Top.sendonItemclickbottom {
+public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top.sendonitemclicktop, Adapter_Home_Bottom.sendonItemclickbottom {
 
     FragmentManager fragmentManager;
     BottomNavigationView bnw;
@@ -62,13 +62,11 @@ private BottomNavigationView.OnNavigationItemSelectedListener navListener= new
 
     @Override
     public void sendonclicktop(int i) {
-        SetFragment(new Fragment_Search());
         bnw.setSelectedItemId(R.id.searchbottom);
     }
 
     @Override
     public void sendonclickbottom(int i) {
-        SetFragment(new Fragment_Search());
         bnw.setSelectedItemId(R.id.searchbottom);
 
     }
@@ -77,7 +75,6 @@ private BottomNavigationView.OnNavigationItemSelectedListener navListener= new
         fragmentManager.beginTransaction().replace(fl.getId(),fragment).commit();
 
     }
-
 
 
 

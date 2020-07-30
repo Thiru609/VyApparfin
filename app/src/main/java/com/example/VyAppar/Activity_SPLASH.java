@@ -25,35 +25,21 @@ public class Activity_SPLASH extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                FirebaseUser currentuser= firebaseAuth.getCurrentUser();
-                if(currentuser!=null)
-                {Intent intent=new Intent(Activity_SPLASH.this,Activity_MAIN.class);
-                    startActivity(intent);
-                    finish();}
-                else
-                {
-                    Intent intent=new Intent(Activity_SPLASH.this, Activity_LOGIN.class);
-                    startActivity(intent);
-                    finish();
-                }
+                    FirebaseUser currentuser= firebaseAuth.getCurrentUser();
+                    if(currentuser!=null)
+                    {Intent intent=new Intent(Activity_SPLASH.this,Activity_MAIN.class);
+                        startActivity(intent);
+                        finish();}
+                    else
+                    {
+                        Intent intent=new Intent(Activity_SPLASH.this, Activity_LOGIN.class);
+                        startActivity(intent);
+                        finish();
+                    }
             }
         }, SPLASH_LENGTH);
 
 
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentuser= firebaseAuth.getCurrentUser();
-        if(currentuser!=null)
-        {Intent intent=new Intent(Activity_SPLASH.this,Activity_MAIN.class);
-           startActivity(intent);
-           finish();}
-        else
-        {
-            return;
-        }
-    }
-
 
 }
