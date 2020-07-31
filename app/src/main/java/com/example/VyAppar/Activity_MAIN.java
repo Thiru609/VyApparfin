@@ -5,7 +5,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
+import androidx.preference.PreferenceViewHolder;
 
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top.sendonitemclicktop, Adapter_Home_Bottom.sendonItemclickbottom,Adapter_Cart.CountandPrice,Adapter_Search.SearchInterface {
 
@@ -23,6 +26,7 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
     BottomNavigationView bnw;
     FrameLayout fl;
     SharedPreferences preferences;
+    FirebaseAuth firebaseAuth;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -36,10 +40,10 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
         SetFragment(new Fragment_Home());
         bnw.setOnNavigationItemSelectedListener(navListener);
         preferences= PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        preferences.edit().putBoolean("switch_preference_1",false).commit();
         APPLICATION_CLASS.NAME=preferences.getString("Name","Blank");
         APPLICATION_CLASS.ADDRESS=preferences.getString("address","Blank");
         Toast.makeText(Activity_MAIN.this,"Welcome Back "+APPLICATION_CLASS.NAME,Toast.LENGTH_SHORT).show();
-
 
     }
 
