@@ -3,21 +3,17 @@ package com.example.VyAppar;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SnapHelper;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,7 +26,6 @@ public class Fragment_Home extends Fragment {
     RecyclerView.Adapter adapter1,adapter2,adapter3;
     RecyclerView.LayoutManager layoutManager2,layoutManager3,layoutManager1;
     View view;
-    ArrayList<Class_Home_Category> home_data1,home_data2;
     Toolbar toolbar;
     BottomNavigationView bnw;
 
@@ -43,22 +38,6 @@ public class Fragment_Home extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        home_data1=new ArrayList<Class_Home_Category>();
-        home_data2=new ArrayList<Class_Home_Category>();
-        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
-        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
-        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
-        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
-        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
-        home_data1.add(new Class_Home_Category("Food", R.drawable.foodplaceholder));
-
-        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.piza));
-        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.piza));
-        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.piza));
-        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.piza));
-        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.piza));
-        home_data2.add(new Class_Home_Category("Mallu Joint", R.drawable.piza));
-
         iwPromo=view.findViewById(R.id.iwPromo);
         iwPromo.setImageResource(R.drawable.banner);
 
@@ -68,9 +47,9 @@ public class Fragment_Home extends Fragment {
         l1.setHasFixedSize(true);
         l2.setHasFixedSize(true);
         l3.setHasFixedSize(true);
-        adapter1=new Adapter_Home_Top(this.getActivity(),home_data1);
-        adapter2=new Adapter_Home_Bottom(this.getActivity(),home_data2);
-        adapter3=new Adapter_Home_Bottom(this.getActivity(),home_data2);
+        adapter1=new Adapter_Home_Top(this.getActivity(),APPLICATION_CLASS.top);
+        adapter2=new Adapter_Home_Bottom(this.getActivity(),APPLICATION_CLASS.bottom);
+        adapter3=new Adapter_Home_Bottom(this.getActivity(),APPLICATION_CLASS.bottom);
         layoutManager1=new GridLayoutManager(this.getActivity(),2,RecyclerView.HORIZONTAL,false);
         layoutManager2=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
         layoutManager3=new LinearLayoutManager(this.getActivity(),RecyclerView.HORIZONTAL,false);
@@ -89,7 +68,7 @@ public class Fragment_Home extends Fragment {
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId()==R.id.cart)
                 {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new Fragment_Cart_PARENT()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new Fragment_Cart()).commit();
                     bnw=getActivity().findViewById(R.id.bottomnw);
                     bnw.setSelectedItemId(R.id.cartbottom);
                 }

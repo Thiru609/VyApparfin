@@ -1,5 +1,6 @@
 package com.example.VyAppar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,21 @@ import java.util.ArrayList;
 public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolder> {
 
     private ArrayList<Class_Cart> carts=new ArrayList<>();
-    int totalcount;
     int height;
+    CountandPrice activity;
+
+
+    public interface CountandPrice
+    {
+      void getTotalCountandPrice(String totalcount,String totalprice);
+
+    }
+
 
     public Adapter_Cart(Context context, ArrayList<Class_Cart> list){
         carts = list;
+        activity=(CountandPrice)context;
+
 
     }
 
@@ -50,6 +61,8 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
                     int i=carts.indexOf(itemView.getTag());
                     carts.get(i).setQuantity((Integer.toString(Integer.parseInt(quantity.getText().toString())+1)));
                     notifyDataSetChanged();
+                    activity.getTotalCountandPrice(getCount(),getPrice());
+
 
                 }
             });
@@ -62,14 +75,20 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
                     {
                         carts.remove(i);
                         notifyDataSetChanged();
+                        activity.getTotalCountandPrice(getCount(),getPrice());
+
                     }
                     else {
                         carts.get(i).setQuantity((Integer.toString(Integer.parseInt(quantity.getText().toString()) - 1)));
                         notifyDataSetChanged();
+                        activity.getTotalCountandPrice(getCount(),getPrice());
+
                     }
 
                 }
             });
+
+            activity.getTotalCountandPrice(getCount(),getPrice());
 
 
 
@@ -97,19 +116,34 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
         holder.quantity.setText(carts.get(position).getQuantity());
 
 
+        }
 
 
-    }
 
     @Override
     public int getItemCount() {
         return carts.size();
     }
-     private void GetTotalCount(){
+
+    private String getCount(){
+     int totalcount=0;
+        for(Class_Cart temp:carts)
+        {
+            totalcount+=Integer.parseInt(temp.getQuantity().trim());
+
+        }
+        return Integer.toString(totalcount);
+    }
+    private String getPrice(){
+        int totalprice=0;
         for(Class_Cart temp:carts)
         {
 
+            int count=Integer.parseInt(temp.getQuantity().trim());
+            totalprice+=Integer.parseInt(temp.getPrice().trim().substring(3))*count;
+
         }
+        return Integer.toString(totalprice);
     }
 
 

@@ -25,7 +25,6 @@ public class Fragment_Search extends Fragment {
     Adapter_Search adapter;
     LinearLayoutManager linearLayoutManager;
     RecyclerView l1;
-    private ArrayList<Class_Search_Categories> data;
     SearchView sw;
 
 
@@ -40,23 +39,9 @@ public class Fragment_Search extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        data=new ArrayList<Class_Search_Categories>();
-
-
-        data.add(new Class_Search_Categories("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Thiru Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Amuthan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Kanni Babu Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Bob dylan Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Malayalam Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Chinese Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-        data.add(new Class_Search_Categories("Yo mamas Foods","Tasty homemade Malayalam","Alandur","4/5", R.drawable.picklerick));
-
-
-
         l1=view.findViewById(R.id.l1);
         l1.setHasFixedSize(true);
-        adapter=new Adapter_Search(this.getActivity(),data);
+        adapter=new Adapter_Search(this.getActivity(),APPLICATION_CLASS.searchresults);
         linearLayoutManager=new LinearLayoutManager(this.getActivity(),RecyclerView.VERTICAL,false);
         l1.setAdapter(adapter);
         l1.setLayoutManager(linearLayoutManager);

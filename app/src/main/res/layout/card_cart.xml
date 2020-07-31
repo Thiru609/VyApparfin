@@ -96,14 +96,14 @@
             android:id="@+id/subtract"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_remove_circle_outline_24"
+            app:srcCompat="@drawable/ic_baseline_remove_circle_outline_24"
             android:tint="#000000"
             app:layout_constraintBottom_toBottomOf="@+id/price"
             app:layout_constraintEnd_toEndOf="@+id/add"
             app:layout_constraintStart_toStartOf="@+id/add"
             app:layout_constraintTop_toBottomOf="@+id/add"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/ic_baseline_remove_circle_outline_24" />
+           />
 
         <ImageView
             android:id="@+id/imageView2"

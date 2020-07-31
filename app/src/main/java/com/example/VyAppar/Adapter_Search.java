@@ -161,7 +161,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
 
     }
 
-    public double variance(int a[], int n)
+    private double variance(int a[], int n)
     {
         // Compute mean (average of elements)
         int sum = 0;
