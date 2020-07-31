@@ -68,7 +68,7 @@ public class Fragment_Home extends Fragment {
             public boolean onMenuItemClick(MenuItem item) {
                 if(item.getItemId()==R.id.cart)
                 {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new Fragment_Cart()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().add(R.id.main_frame,new Fragment_Cart()).commit();
                     bnw=getActivity().findViewById(R.id.bottomnw);
                     bnw.setSelectedItemId(R.id.cartbottom);
                 }

@@ -28,6 +28,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/btnadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.78"
+                card_view:layout_constraintStart_toEndOf="@+id/tvrating"
+                card_view:layout_constraintTop_toTopOf="@+id/tvrating"
+                card_view:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+
             <TextView
                 android:id="@+id/twDesc"
                 android:layout_width="wrap_content"

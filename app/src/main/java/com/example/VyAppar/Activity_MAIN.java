@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -20,7 +19,6 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
     FragmentManager fragmentManager;
     BottomNavigationView bnw;
     FrameLayout fl;
-    TextView TotalCost, TotalQuantity;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -82,11 +80,12 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
 
     @Override
     public void getTotalCountandPrice(String totalcount, String totalprice) {
-        TotalCost = findViewById(R.id.thevidiya);
-        TotalQuantity = findViewById(R.id.total);
-        TotalCost.setText(totalprice);
-        TotalQuantity.setText(totalcount);
-
+        TextView tc1 = findViewById(R.id.tvtotalprice);
+        TextView tq1 = findViewById(R.id.total);
+        tc1.setText("Total Price: Rs."+totalprice);
+        tq1.setText(totalcount+" items");
+        APPLICATION_CLASS.TOTAL_PRICE=totalprice;
+        APPLICATION_CLASS.TOTAL_QUANTITY=totalcount;
 
     }
 

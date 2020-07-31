@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -69,10 +70,11 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
 
     public class newViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView iwdisp;
+        public ImageView iwdisp,btnadd;
         public TextView title,desc,misc,rating;
 
-        public newViewHolder(@NonNull View itemView) {
+
+        public newViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             WindowManager.LayoutParams layoutParams=new WindowManager.LayoutParams();
@@ -83,6 +85,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
             desc=itemView.findViewById(R.id.twDesc);
             misc=itemView.findViewById(R.id.tvMisc);
             rating=itemView.findViewById(R.id.tvrating);
+            btnadd=itemView.findViewById(R.id.btnadd);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,6 +93,15 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
                     //CLICK TO SEND INTENT
                 }
             });
+
+            btnadd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AddToCart(itemView);
+                }
+            });
+
+
 
         }
 
@@ -202,6 +214,28 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
             {
                 return (false);
             }
+        }
+    }
+
+    private void AddToCart(View itemview){
+        int i=cats.indexOf(itemview.getTag()),FLAG=0;
+
+        //
+        String title=cats.get(i).getTitle();
+        String desc=cats.get(i).getDesc();
+        int disp=cats.get(i).getIwDisp();
+        //
+        for(Class_Cart temp:APPLICATION_CLASS.cart)
+        {
+            if(temp.getTitle().equals(title))
+            {  FLAG=1;
+               APPLICATION_CLASS.cart.get(APPLICATION_CLASS.cart.indexOf(temp)).setQuantity(Integer.toString(Integer.parseInt(temp.getQuantity())+1));
+            }
+
+        }
+        if(FLAG==0)
+        {
+            APPLICATION_CLASS.cart.add(new Class_Cart(title,desc,"Rs.690","1",disp));
         }
     }
 

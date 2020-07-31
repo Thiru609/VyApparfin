@@ -10,15 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.zip.CheckedOutputStream;
 
 public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolder> {
 
     private ArrayList<Class_Cart> carts=new ArrayList<>();
     int height;
-    CountandPrice activity;
+    CountandPrice activity,fragment;
 
 
     public interface CountandPrice
@@ -28,9 +30,11 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
     }
 
 
-    public Adapter_Cart(Context context, ArrayList<Class_Cart> list){
+    public Adapter_Cart(Context context, ArrayList<Class_Cart> list, CountandPrice reference){
         carts = list;
         activity=(CountandPrice)context;
+        fragment=(CountandPrice) reference;
+
 
 
     }
@@ -61,7 +65,7 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
                     int i=carts.indexOf(itemView.getTag());
                     carts.get(i).setQuantity((Integer.toString(Integer.parseInt(quantity.getText().toString())+1)));
                     notifyDataSetChanged();
-                    activity.getTotalCountandPrice(getCount(),getPrice());
+                    fragment.getTotalCountandPrice(getCount(),getPrice());
 
 
                 }
@@ -75,21 +79,20 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
                     {
                         carts.remove(i);
                         notifyDataSetChanged();
-                        activity.getTotalCountandPrice(getCount(),getPrice());
+                        fragment.getTotalCountandPrice(getCount(),getPrice());
 
                     }
                     else {
                         carts.get(i).setQuantity((Integer.toString(Integer.parseInt(quantity.getText().toString()) - 1)));
                         notifyDataSetChanged();
-                        activity.getTotalCountandPrice(getCount(),getPrice());
+                        fragment.getTotalCountandPrice(getCount(),getPrice());
 
                     }
 
                 }
             });
 
-            activity.getTotalCountandPrice(getCount(),getPrice());
-
+            fragment.getTotalCountandPrice(getCount(),getPrice());
 
 
         }
@@ -145,7 +148,6 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
         }
         return Integer.toString(totalprice);
     }
-
 
 
 }
