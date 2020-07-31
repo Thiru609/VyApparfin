@@ -9,27 +9,26 @@
     tools:context=".Activity_MAIN">
 
 
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomnw"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnw"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/white"
         app:elevation="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_frame"
         app:menu="@menu/menu_bottom_nav_bar" />
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomnw">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

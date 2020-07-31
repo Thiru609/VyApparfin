@@ -80,6 +80,15 @@ public class Fragment_Cart extends Fragment implements Adapter_Cart.CountandPric
             }
         });
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bnw=getActivity().findViewById(R.id.bottomnw);
+                bnw.setSelectedItemId(R.id.searchbottom);
+
+            }
+        });
+
 
         return view;
     }

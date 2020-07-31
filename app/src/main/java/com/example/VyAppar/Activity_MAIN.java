@@ -5,20 +5,24 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.preference.PreferenceManager;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top.sendonitemclicktop, Adapter_Home_Bottom.sendonItemclickbottom,Adapter_Cart.CountandPrice {
+public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top.sendonitemclicktop, Adapter_Home_Bottom.sendonItemclickbottom,Adapter_Cart.CountandPrice,Adapter_Search.SearchInterface {
 
     FragmentManager fragmentManager;
     BottomNavigationView bnw;
     FrameLayout fl;
+    SharedPreferences preferences;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -27,13 +31,19 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fl = findViewById(R.id.main_frame);
+        bnw=findViewById(R.id.bottomnw);
         fragmentManager = this.getSupportFragmentManager();
         SetFragment(new Fragment_Home());
-        bnw = findViewById(R.id.bottomnw);
         bnw.setOnNavigationItemSelectedListener(navListener);
+        preferences= PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        APPLICATION_CLASS.NAME=preferences.getString("Name","Blank");
+        APPLICATION_CLASS.ADDRESS=preferences.getString("address","Blank");
+        Toast.makeText(Activity_MAIN.this,"Welcome Back "+APPLICATION_CLASS.NAME,Toast.LENGTH_SHORT).show();
 
 
     }
+
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new
             BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -52,6 +62,7 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
                             SetFragment(new Fragment_Cart());
                             break;
                         case (R.id.profilebottom):
+                            SetFragment(new Fragment_Settings_Preference());
                             break;
 
 
@@ -63,12 +74,11 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
 
     @Override
     public void sendonclicktop(int i) {
-        bnw.setSelectedItemId(R.id.searchbottom);
-    }
+        bnw.setSelectedItemId(R.id.searchbottom);}
 
     @Override
     public void sendonclickbottom(int i) {
-        bnw.setSelectedItemId(R.id.searchbottom);
+            bnw.setSelectedItemId(R.id.searchbottom);
 
     }
 
@@ -89,4 +99,7 @@ public class Activity_MAIN extends AppCompatActivity implements Adapter_Home_Top
 
     }
 
+    @Override
+    public void updatecart(int i) {
+    }
 }

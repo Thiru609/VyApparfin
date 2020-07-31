@@ -22,10 +22,16 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
     private ArrayList<Class_Search_Categories> cats=new ArrayList<>();
     private ArrayList<Class_Search_Categories> FULL_LIST=new ArrayList<>();
     int height;
+    SearchInterface activity;
+
+    public interface SearchInterface{
+        void updatecart(int i);
+    }
 
     public Adapter_Search(Context context, ArrayList<Class_Search_Categories> list){
         cats = list;
         FULL_LIST=list;
+        activity=(SearchInterface) context;
     }
 
     @Override
@@ -98,6 +104,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
                 @Override
                 public void onClick(View view) {
                     AddToCart(itemView);
+                    activity.updatecart(cats.indexOf(itemView.getTag()));
                 }
             });
 
@@ -236,6 +243,17 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
         if(FLAG==0)
         {
             APPLICATION_CLASS.cart.add(new Class_Cart(title,desc,"Rs.690","1",disp));
+        }
+        if(APPLICATION_CLASS.TOTAL_QUANTITY==null)
+        {
+            APPLICATION_CLASS.TOTAL_QUANTITY="1";
+        }
+        else if (APPLICATION_CLASS.TOTAL_QUANTITY.isEmpty())
+        {APPLICATION_CLASS.TOTAL_QUANTITY="1";
+
+        }
+        else{
+            APPLICATION_CLASS.TOTAL_QUANTITY=Integer.toString(Integer.parseInt(APPLICATION_CLASS.TOTAL_QUANTITY.trim())+1);
         }
     }
 
