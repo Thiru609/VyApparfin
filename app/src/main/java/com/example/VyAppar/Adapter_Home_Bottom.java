@@ -39,7 +39,7 @@ public class Adapter_Home_Bottom extends RecyclerView.Adapter<Adapter_Home_Botto
             iwdisp=itemView.findViewById(R.id.iw1);
             title=itemView.findViewById(R.id.tv1);
             WindowManager.LayoutParams layoutParams=new WindowManager.LayoutParams();
-            layoutParams.width=(int)width/4;
+            layoutParams.width=(int)width/5;
             itemView.setLayoutParams(layoutParams);
 
 

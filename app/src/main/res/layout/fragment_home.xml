@@ -15,16 +15,16 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarhome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="85dp"
             android:background="@color/white"
             android:gravity="center_horizontal|center_vertical"
             android:theme="@style/ToolBarTheme"
             app:navigationIcon="@drawable/ic_baseline_location_on_24"
-            app:subtitleTextColor="@color/lightpurple"
+            app:subtitleTextColor="@color/black"
             app:title="VyAppar"
             app:titleMarginStart="90dp"
             app:titleTextAppearance="@style/VyapparTitle"
-            app:titleTextColor="@color/lightpurple" />
+            app:titleTextColor="@color/black" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -36,33 +36,7 @@
                 android:theme="@style/AppTheme">
 
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="?android:attr/listDivider"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lw1" />
 
-                <View
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="?android:attr/listDivider"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lw2" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/lw1"
@@ -72,6 +46,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     app:layout_constraintBottom_toTopOf="@id/tvPopular"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -99,10 +74,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/fredoka_one"
-                    android:text="Suggested"
+                    android:fontFamily="@font/oxygen"
+                    android:text="Suggested for you"
                     android:textColor="#000000"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@id/lw3"
                     app:layout_constraintHorizontal_bias="0.1"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -146,13 +122,13 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/fredoka_one"
+                    android:fontFamily="@font/oxygen"
                     android:text="Popular "
                     android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:textStyle="normal"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@id/lw2"
-                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintHorizontal_bias="0.085"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lw1" />

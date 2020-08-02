@@ -89,7 +89,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
             super(itemView);
 
             WindowManager.LayoutParams layoutParams=new WindowManager.LayoutParams();
-            layoutParams.height=height/5;
+            layoutParams.height=height/9;
             itemView.setLayoutParams(layoutParams);
             iwdisp=itemView.findViewById(R.id.iw1);
             title=itemView.findViewById(R.id.tv1);
