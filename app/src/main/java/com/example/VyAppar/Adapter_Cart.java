@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,7 +43,8 @@ public class Adapter_Cart extends RecyclerView.Adapter<Adapter_Cart.newViewHolde
 
     public class newViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView iwdisp,add,remove;
+        public ImageView iwdisp;
+        public ImageButton add,remove;
         public TextView title,desc,price,quantity;
 
         public newViewHolder(@NonNull final View itemView) {

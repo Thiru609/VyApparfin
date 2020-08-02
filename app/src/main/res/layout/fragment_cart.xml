@@ -27,7 +27,6 @@
             android:layout_height="40dp"
             android:background="#00FFFFFF"
             android:minHeight="?attr/actionBarSize"
-            android:paddingTop="10dp"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

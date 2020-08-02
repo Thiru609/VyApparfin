@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuView;
@@ -23,6 +25,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
     private ArrayList<Class_Search_Categories> FULL_LIST=new ArrayList<>();
     int height;
     SearchInterface activity;
+    Context contextthis;
 
     public interface SearchInterface{
         void updatecart(int i);
@@ -32,6 +35,7 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
         cats = list;
         FULL_LIST=list;
         activity=(SearchInterface) context;
+        contextthis=context;
     }
 
     @Override
@@ -76,7 +80,8 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
 
     public class newViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView iwdisp,btnadd;
+        public ImageView iwdisp;
+        public ImageButton btnadd;
         public TextView title,desc,misc,rating;
 
 
@@ -237,12 +242,14 @@ public class Adapter_Search extends RecyclerView.Adapter<Adapter_Search.newViewH
             if(temp.getTitle().equals(title))
             {  FLAG=1;
                APPLICATION_CLASS.cart.get(APPLICATION_CLASS.cart.indexOf(temp)).setQuantity(Integer.toString(Integer.parseInt(temp.getQuantity())+1));
+                Toast.makeText(contextthis,"Item Added to Cart",Toast.LENGTH_SHORT).show();
             }
 
         }
         if(FLAG==0)
         {
             APPLICATION_CLASS.cart.add(new Class_Cart(title,desc,"Rs.690","1",disp));
+            Toast.makeText(contextthis,"Item Added to Cart",Toast.LENGTH_SHORT).show();
         }
         if(APPLICATION_CLASS.TOTAL_QUANTITY==null)
         {
